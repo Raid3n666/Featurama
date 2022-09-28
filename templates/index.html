@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block page_title %}Home{% endblock %}
+{% block body %}
+<div class="center">
+
+{% for movie in movies %}
+        <button type="button" class="collapsible">{{ movie.title }}</button>
+        <div class="content">
+            <div class="center2">
+                <h3 class="title">{{ movie.title }}</h3>
+                <h4 class="title">{{ movie.year }}</h4>
+                <div class="img">
+                    <img src="{{ movie.img }}" alt="" style="width: 140px; height: 210px;">
+                    <p class="score">{{ movie.avg_rate }} / 10</p>
+                    <form method="POST">
+                        Rate : 
+                        <select name="{{ movie.title }}" id="{{ movie.title }}">
+                            {% for i in range(10) %}
+                            <option value="{{ i + 1 }}">{{ i + 1  }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Enter">
+                    </form>
+                    <p class="rate_count">Rated by {{ movie.rate_count }} users</p>
+            </div>
+            
+            <div class="desc">
+                <br><br>
+                <p>Directed by - {{ movie.dir }} </p>
+                <p>Starring - {{ movie.star }}  & {{ movie.co_star }}</p>
+            </div>
+            </div>
+        </div>
+{% endfor %}
+</div>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+{% endblock %}

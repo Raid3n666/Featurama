@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movies - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="../static/main.css">
+
+    </head>
+    <body>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/top_movies">Top 15</a></li>
+            <li><a href="/random">Random Pick</a></li>
+        </ul>
+        <br><br>
+        <header class="titles">
+            <h1 class="title"> Featurama </h1>
+            <hr>
+            <h2 class="title">{% block page_title %} {% endblock %}</h2>
+        </header>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

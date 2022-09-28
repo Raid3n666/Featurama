@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Top 15 Movies{% endblock %}
+{% block page_title %}Top 15 Movies{% endblock %}
+{% block body %}
+<div class="center" style="text-align: center;">
+    <table>
+        <th>
+            Title
+        </th>
+        <th>
+            Score
+        </th>
+        <th>
+            Ratings
+        </th>
+    {% for movie in movies %}
+        <tr>
+            <td>{{ movie.title }}</td><td class="score">{{ movie.avg_rate }}</td><td class="rate_count" style="color: aqua;">{{ movie.rate_count }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

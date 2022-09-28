@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}{{ movie.title }}{% endblock %}
+{% block page_title %}Random Film{% endblock %}
+{% block body %}
+<div class="center">
+    <div class="center2">
+        <h3 class="title">{{ movie.title }}</h3>
+        <h4 class="title">{{ movie.year }}</h4>
+        <div class="img">
+            <img src="{{ movie.img }}" alt="" style="width: 140px; height: 210px;">
+            <p class="score">{{ movie.avg_rate }} / 10</p>
+            <p class="rate_count">Rated by {{ movie.rate_count }} users</p>
+    </div>
+    
+    <div class="desc">
+        <br><br>
+        <p>Directed by - {{ movie.dir }} </p>
+        <p>Starring - {{ movie.star }}  & {{ movie.co_star }}</p>
+    </div>
+    </div>
+</div>
+<div class="center2">
+<h3 class="sum">Summary</h3>
+<p style="text-align: center;">{{ summary }}</p>
+</div>
+</div>
+{% endblock %}
